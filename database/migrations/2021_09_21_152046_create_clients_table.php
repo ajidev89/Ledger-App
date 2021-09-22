@@ -17,6 +17,7 @@ class CreateClientsTable extends Migration
             $table->id();
             $table->string('email');
             $table->string('name');
+            $table->string('description');
             $table->integer('current_balance');
             $table->timestamps();
         });
