@@ -22,3 +22,5 @@ Route::get('/clients', [App\Http\Controllers\ClientController::class, 'index'])-
 Route::get('/add-client', [App\Http\Controllers\ClientController::class, 'addpage'])->name('addpage')->middleware('auth');
 Route::post('/add-client', [App\Http\Controllers\ClientController::class, 'add'])->name('addClient')->middleware('auth');
 Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index'])->name('transactions')->middleware('auth');
+Route::post('/transactions', [App\Http\Controllers\TransactionController::class, 'addTxn'])->name('addTxn')->middleware('auth');
+Route::get('/transactions/{id}', [App\Http\Controllers\TransactionController::class, 'show'])->name('getAllTranx')->middleware('auth');

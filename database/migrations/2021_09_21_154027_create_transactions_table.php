@@ -15,6 +15,7 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+             $table->string('title');
             $table->string('type');
             $table->string('amount');
             $table->string('current_bal');

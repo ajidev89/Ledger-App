@@ -17,10 +17,10 @@
 </head>
 <body class="font-nunito">
     <div id="app">
-        <div class="flex" >
+        <div class="flex sticky top-0" >
             @include('layouts.components.sidebar')
-            <div class="w-4/5  float-right h-screen" >
-                <div class="flex-grow p-3 shadow flex justify-end" >
+            <div class="w-4/5 float-right" >
+                <div class="flex-grow p-3 shadow flex justify-end sticky top-0 bg-white" >
                     <div class="flex space-x-2" >
                         <div class="text-gray-700">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -30,17 +30,14 @@
                         <div>
                             <p class="text-xs">Welcome !</p>
                             <p>{{ Auth::user()->name  }}</p>
-                        </div>
-                        
+                        </div>      
                     </div>
-                    
                 </div>
                 <main class="p-6">
                     @yield('content')
                 </main>
             </div>
         </div>
-   
     </div>
 </body>
 </html>

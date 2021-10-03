@@ -1,14 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
     function index()
     {
-        return view('clients.clients');
+        //get all clients
+        $allClients = Client::all();
+        return view('clients.clients',['allClients'=>$allClients]);
     }
 
     function addpage(){
@@ -17,9 +19,17 @@ class ClientController extends Controller
     function add(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:posts|max:255',
-            'email' => 'required|email',
+            'name' => 'required|max:255',
+            'email' => 'required|email|unique:clients',
             'description' => 'required'
         ]);
+
+        $newClient = new Client;
+        $newClient->email = request('email');
+        $newClient->description = request('description');
+        $newClient->name = request('name');
+        $newClient->current_balance =-0.00;
+        $newClient->save();
+        return redirect()->back()->with('msg', 'Successfully added a new client');
     }
 }

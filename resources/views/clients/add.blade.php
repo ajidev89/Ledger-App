@@ -4,6 +4,9 @@
 <div class="flex justify-between" >
     <p class="text-2xl font-semibold" >Add Client</p>
 </div>
+   @if(session()->has('msg'))
+        <p class="bg-green-500 rounded text-gray-100 p-3">{{ session()->get('msg') }}</p>
+    @endif
 <form action="{{ route('addClient') }}" method="post" class="mt-6">
     @csrf
     <div class="mb-4  w-3/5">
